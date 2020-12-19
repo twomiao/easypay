@@ -1,0 +1,7 @@
+back.log
+vendor
+nginx.htaccess
+pay_err.log
+test.php
+.htaccess
+.idea

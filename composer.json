@@ -1,0 +1,16 @@
+{
+    "name": "easypay/wepay",
+    "description": "wepay",
+    "keywords": ["easypay", "pay"],
+    "require": {
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Easypay\\": "easypay/"
+        }
+    },
+    "require-dev": {
+    }
+}
