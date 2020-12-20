@@ -2,9 +2,9 @@
 try {
     // 单独查询订单
     $queryOrder = new \Easypay\WePay\Api\QueryOrder([
-        'merchant_id' => '2020311',
-        'merchant_key' => 'QBcvfTiNHAEHZaaYbeYRCPIFPdzGJWmd',
-        'gateway_url' => 'http://apay.azhifu88.com/Pay',
+        'merchant_id' => '',
+        'merchant_key' => '',
+        'gateway_url' => 'http://xxx.xxx.com/Pay',
         'is_debug' => true,
         'log_file' => 'QueryOrder.log'
     ]);
