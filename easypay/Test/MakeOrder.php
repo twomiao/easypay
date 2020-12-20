@@ -2,7 +2,7 @@
 try {
     $config = array(
         "fxnotifyurl" => "",
-        'fxbackurl' => 'http://www.baidu.com/index.php',
+        'fxbackurl' => '',
         'fxpay' => 'wxhf', // wxsm
         'merchant_key' => '',
         'merchant_id' => '',

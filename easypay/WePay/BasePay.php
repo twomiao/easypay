@@ -52,10 +52,10 @@ abstract class BasePay
             $data = [];
             if (is_string($payload)) {
                 $data = json_decode($payload, true, 512);
-            }
 
-            if (!is_array($data)) {
-                throw new \InvalidArgumentException("json error: { $payload }, error_msg: " . json_last_error_msg());
+                if (!is_array($data)) {
+                    throw new \InvalidArgumentException("json error: ( { $payload } ), error_msg: " . json_last_error_msg());
+                }
             }
 
             $this->payload = $data;
@@ -110,7 +110,7 @@ abstract class BasePay
 
     public function __toString()
     {
-        if (is_array($this->payload)) {
+        if (is_array($this->payload) && !is_null($this->payload)) {
             return json_encode($this->payload, JSON_UNESCAPED_UNICODE);
         }
 

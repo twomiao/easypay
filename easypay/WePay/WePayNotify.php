@@ -44,7 +44,7 @@ class WePayNotify extends BasePay
 
     public function getNotifyData()
     {
-        if ($this->verifySignature()) {
+        if ($this->verifySignature() === false) {
             throw new InvalidResponseException("Signature error.", 10003);
         }
 

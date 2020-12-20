@@ -13,6 +13,8 @@ try {
      */
     $wePayNotify->paymentLogic(function ($notifyData, $orderData) {
         // todo 业务逻辑
+        // 记录日志。。。
+        // $notifyData
 
     });
 
