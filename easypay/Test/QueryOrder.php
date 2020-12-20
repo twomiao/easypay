@@ -4,7 +4,9 @@ try {
     $queryOrder = new \Easypay\WePay\Api\QueryOrder([
         'merchant_id' => '',
         'merchant_key' => '',
-        'gateway_url' => ''
+        'gateway_url' => '',
+        'is_debug' => true,
+        'log_file' => 'QueryOrder.log'
     ]);
     // 查询出来订单数据
     $order = $queryOrder->setOrderNo('202012192037434699')->getOrderData();

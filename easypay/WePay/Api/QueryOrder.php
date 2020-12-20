@@ -13,7 +13,9 @@ use Easypay\WePay\InvalidResponseException;
 class QueryOrder extends BasePay
 {
     protected $data = [];
-    protected $config = [];
+    protected $config = [
+        'is_debug' => false
+    ];
     private $gatewayUrl;
 
     const ORDER_QUERY_ACTION = 'orderquery';   // 平台订单查询接口
@@ -46,6 +48,12 @@ class QueryOrder extends BasePay
         );
 
         $this->data['fxsign'] = $this->buildSignature();
+
+        if ($this->config['is_debug'])
+        {
+            $this->recordLog($this->config['log_file'], 'Send query order', $this->data);
+        }
+
         return $this;
     }
 
@@ -63,6 +71,12 @@ class QueryOrder extends BasePay
     {
         // 订单数据
         $orderData = $this->httpRequest($this->gatewayUrl, 'POST', $this->data);
+
+        if ($this->config['is_debug'])
+        {
+            $this->recordLog($this->config['log_file'], 'Response query order', $this->getPayloadAll());
+        }
+
         if ($this->isSuccessful()) {
             return $orderData;
         }

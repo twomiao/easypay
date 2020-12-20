@@ -1,12 +1,14 @@
 <?php
 try {
     $config = array(
-        "fxnotifyurl" => "",
-        'fxbackurl' => '',
+        "fxnotifyurl" => "http://www.xxxx.com/index.php/index/test",
+        'fxbackurl' => 'http://www.baidu.com/index.php',
         'fxpay' => 'wxhf', // wxsm
         'merchant_key' => '',
         'merchant_id' => '',
-        'gateway_url' => ''
+        'gateway_url' => 'http://apay.xxx.com/Pay',
+        'is_debug' => true,
+        'log_file' => 'WePay.log'
     );
 
     $wePay = new \Easypay\WePay\WePay($config);

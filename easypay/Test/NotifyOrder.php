@@ -4,7 +4,9 @@ try {
     $wePayNotify = new \Easypay\WePay\WePayNotify([
         'merchant_id' => '',
         'merchant_key' => '',
-        'gateway_url' => ''
+        'gateway_url' => '',
+        'is_debug' => true,
+        'log_file' => 'WePayNotify.log'
     ]);
 
     /**

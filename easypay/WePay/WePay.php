@@ -7,7 +7,9 @@ class WePay extends BasePay
      * 配置文件
      * @var array $config
      */
-    protected $config = [];
+    protected $config = [
+        'is_debug' => false,
+    ];
 
     /**
      * 订单数据
@@ -47,6 +49,11 @@ class WePay extends BasePay
         );
         $order['fxsign'] = $this->buildSignature($order);
 
+        if ($this->config['is_debug'])
+        {
+            $this->recordLog($this->config['log_file'], "Send order data: ", $order);
+        }
+
         $this->order = $order;
     }
 
@@ -71,6 +78,11 @@ class WePay extends BasePay
     public function goWePay()
     {
        $this->httpRequest($this->config['gateway_url'], 'POST', $this->order);
+
+        if ($this->config['is_debug'])
+        {
+            $this->recordLog($this->config['log_file'], "Response data: ", $this->getPayloadAll());
+        }
 
         if ($this->isSuccessful())
         {

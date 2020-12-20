@@ -100,6 +100,26 @@ abstract class BasePay
     }
 
     /**
+     * 记录日志
+     * @param $logFile
+     * @param $title
+     * @param $data
+     */
+    protected function recordLog($logFile, $title, $data)
+    {
+        $writeTime = date('Y-m-d H:i:s');
+
+        if(is_array($data))
+        {
+            $msg = "{$writeTime} {$title}: ".json_encode($data);
+        } else {
+            $msg = "{$writeTime} {$title}: {$data}";
+        }
+
+        file_put_contents($logFile, $msg.PHP_EOL, FILE_APPEND);
+    }
+
+    /**
      * 获取全部数据
      * @return string
      */

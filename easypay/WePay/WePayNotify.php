@@ -12,7 +12,9 @@ class WePayNotify extends BasePay
      * 配置文件
      * @var $config
      */
-    protected $config = [];
+    protected $config = [
+        'is_debug' => false,
+    ];
 
     /**
      * 当前查询订单数据
@@ -58,6 +60,11 @@ class WePayNotify extends BasePay
             $notifyData = $this->getNotifyData();
 
             if (isset($notifyData['fxddh'])) {
+             /*   if ($this->config['is_debug'])
+                {
+                    $this->config['log_file'] = 'QueryOrder.log';
+                }*/
+
                 $queryOrder = new \Easypay\WePay\Api\QueryOrder($this->config);
                 // 查询出来订单数据
                 $this->order = $order = $queryOrder->setOrderNo($notifyData['fxddh'])->getOrderData();
@@ -105,6 +112,11 @@ class WePayNotify extends BasePay
                     $postData[$name] = $this->convertEncoding($value);
                 }
             }
+        }
+
+        if ($this->config['is_debug'])
+        {
+            $this->recordLog($this->config['log_file'], 'Response notify data', $postData);
         }
 
         return [];
