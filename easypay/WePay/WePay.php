@@ -51,7 +51,7 @@ class WePay extends BasePay
 
         if ($this->config['is_debug'])
         {
-            $this->recordLog($this->config['log_file'], "Send order data: ", $order);
+            $this->recordLog($this->config['log_file'], "Send order data", $order);
         }
 
         $this->order = $order;
@@ -81,7 +81,7 @@ class WePay extends BasePay
 
         if ($this->config['is_debug'])
         {
-            $this->recordLog($this->config['log_file'], "Response data: ", $this->getPayloadAll());
+            $this->recordLog($this->config['log_file'], "Response data", $this->getPayloadAll());
         }
 
         if ($this->isSuccessful())

@@ -22,5 +22,5 @@ try {
 
 } catch (\Easypay\WePay\InvalidResponseException $e) {
     // 调试
-    file_put_contents("pay_err.log", $e->getMessage() . PHP_EOL, FILE_APPEND);
+    file_put_contents("pay_err.log", $e->getMessage().":".$e->getCode() . PHP_EOL, FILE_APPEND);
 }
