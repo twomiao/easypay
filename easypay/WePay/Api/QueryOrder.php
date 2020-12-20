@@ -34,6 +34,7 @@ class QueryOrder extends BasePay
         }
 
         $this->gatewayUrl = $config['gateway_url'];
+        $this->config = array_merge($this->config, $config);
         $this->config['merchant_key'] = $config['merchant_key']; // 商户秘钥
         $this->config['merchant_id'] = $config['merchant_id']; // 商户ID
     }
@@ -78,7 +79,7 @@ class QueryOrder extends BasePay
         }
 
         if ($this->isSuccessful()) {
-            return $orderData;
+            return $orderData->getPayloadAll();
         }
 
         throw new InvalidResponseException($this->__toString(),10002);

@@ -1,12 +1,12 @@
 <?php
 try {
     $config = array(
-        "fxnotifyurl" => "http://www.xxx.com/index.php/index/test",
+        "fxnotifyurl" => "http://www.xiaxiantech.com/index.php/index/test",
         'fxbackurl' => 'http://www.baidu.com/index.php',
         'fxpay' => 'wxhf', // wxsm
-        'merchant_key' => '',
-        'merchant_id' => '',
-        'gateway_url' => '',
+        'merchant_key' => 'QBcvfTiNHAEHZaaYbeYRCPIFPdzGJWmd',
+        'merchant_id' => '2020311',
+        'gateway_url' => 'http://apay.azhifu88.com/Pay',
         'is_debug' => true,
         'log_file' => 'WePay.log'
     );
