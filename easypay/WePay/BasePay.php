@@ -111,7 +111,7 @@ abstract class BasePay
 
         if(is_array($data))
         {
-            $msg = "{$writeTime} {$title}: ".json_encode($data);
+            $msg = "{$writeTime} {$title}: ".json_encode($data, JSON_UNESCAPED_UNICODE);
         } else {
             $msg = "{$writeTime} {$title}: {$data}";
         }
