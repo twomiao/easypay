@@ -26,8 +26,8 @@ class WePayNotify extends BasePay
 
     public function __construct(array $config = [])
     {
-        $this->notifyData = $this->getInputData();
         $this->config = array_merge($this->config, $config);
+        $this->notifyData = $this->getInputData();
     }
 
     /**
